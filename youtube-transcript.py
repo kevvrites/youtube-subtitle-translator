@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+api_key = os.getenv("API_KEY")
 from langchain.llms import OpenAI
 llm = OpenAI(model_name="text-davinci-003", temperature=1.0)
 
