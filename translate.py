@@ -1,17 +1,32 @@
 import os
-from dotenv import load_dotenv
+import openai
+import json
 
-load_dotenv()
-os.environ["OPENAI_API_KEY"] = os.environ.get("OPENAI_API_KEY")
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
-from langchain.llms import OpenAI
-llm = OpenAI(model_name="text-ada-001", temperature=1.0)
+source_language = "English"
+target_language = "Simplified Chinese"
 
-translate = "Translate the following line to Simplified Chinese: "
-transcript = open('transcript.txt')
+with open('clean-transcript.txt', 'r', encoding='utf-8') as file:
+    transcript = file.read()
 
-with open('chinese_transcript.txt', 'w', encoding='utf-8') as file:
-    for line in transcript:
-        transLine = llm(translate + line)
-        file.write(transLine + '\n')
-file.close()
+system_prompt_template = "You will be given lines of text in {source}, and your task is to translate them into {target}. Preserve the original line formatting, specifically the number of lines in the file. The translated version should map to the original file as closely as possible."
+
+system_prompt = system_prompt_template.format(source=source_language, target=target_language)
+
+prompt = [{"role": "system", "content": system_prompt}]
+
+prompt.append({"role": "user", "content": transcript})
+
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=prompt,
+    temperature=0,
+)
+
+print(response)
+
+with open('translated-transcript.txt', 'a+', encoding='utf-8') as f:
+    f.write(response["choices"][0]["message"]["content"])
+
+print('Translating transcript complete.\n')
