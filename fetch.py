@@ -7,7 +7,7 @@ testvideoId = '1h1gzh3r7OA'
 
 transcript = YouTubeTranscriptApi.get_transcript(testvideoId)
 
-with open('original-transcript.txt', 'a+', encoding='utf-8') as f:
+with open('original-transcript.txt', 'w+', encoding='utf-8') as f:
     for line in transcript:
         f.write(line['text'].strip() + '\n')
 

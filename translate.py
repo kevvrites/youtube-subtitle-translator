@@ -5,7 +5,7 @@ import json
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 source_language = "English"
-target_language = "Simplified Chinese"
+target_language = "French"
 
 with open('clean-transcript.txt', 'r', encoding='utf-8') as file:
     transcript = file.read()
@@ -26,7 +26,7 @@ response = openai.ChatCompletion.create(
 
 print(response)
 
-with open('translated-transcript.txt', 'a+', encoding='utf-8') as f:
+with open('translated-transcript.txt', 'w+', encoding='utf-8') as f:
     f.write(response["choices"][0]["message"]["content"])
 
 print('Translating transcript complete.\n')

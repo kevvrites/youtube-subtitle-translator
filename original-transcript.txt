@@ -1,13 +1,13 @@
-onee
-twwo
-trhee
-fo ur
-fiv e
+one
+two
+three
+four
+five
 six
 seven
 eight
 nine
-ten  eleven
+ten eleven
 twelve
-thir-teen  fourteen fifteen sixteen
-Seventeen  um eighteen nineteen twenty
+thirteen fourteen fifteen sixteen
+Seventeen eighteen nineteen twenty
