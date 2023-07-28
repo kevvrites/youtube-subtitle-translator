@@ -2,12 +2,12 @@
 
 ## Libraries
 - [youtube-transcript-api](https://pypi.org/project/youtube-transcript-api/) (Python)
-- [langchain](https://python.langchain.com/) (Python)
+- [openai api](https://openai.com/blog/openai-api) (Python)
 
 ## Function
 - Using OpenAI, clean the youtube auto-generated subtitles and translate each line.
 - Makes it easier to input into YouTube (already divided by timestamp).
-- translates into Simplified Chinese (can edit easily via prompt).
+- translates into Simplified Chinese (can edit easily via variable change).
 
 ## How to Use
 1. clone this repo (edit prompts as needed)
