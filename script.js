@@ -10,7 +10,7 @@
 
 // console.log("Fetch complete.\n");
 
-const API_KEY = "AIzaSyDpTS_Zq07uYMSwVAJz7bB7pCuNBnK6Apk";
+const API_KEY = ;
 const videoId = "1h1gzh3r7OA"; // Replace with the ID of the video you want to fetch the transcript for
 
 function fetchTranscript() {
